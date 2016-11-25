@@ -1,0 +1,9 @@
+<!-- HTML fragment to implement found-items directive with AngularJS -->
+<h3>Found Items</h3>
+Found items: {{foundItems.length}}
+<ol>
+  <li ng-repeat="item in foundItems">
+    {{ item.description }}
+    <button ng-click="list.onRemove({index: $index});">Remove Item</button>
+  </li>
+</ol>
