@@ -1,16 +1,15 @@
-.really-tall {
-  height: 1000px;
-  background-color: #fff0f0;
-}
 
 .chicken-content {
-  background-color: #f0fff0;
+  height: 700px;
+  background-color: #d0ffd0;
 }
 
 .beef-content {
-  background-color: #f0f0ff;
+  height: 700px;
+  background-color: #d0d0ff;
 }
 
 .sushi-content {
-  background-color: #fffff0;
+  height: 700px;
+  background-color: #ffffd0;
 }
