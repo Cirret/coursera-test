@@ -1,0 +1,10 @@
+<br>
+<h4>Categories.component.html</h4>
+
+<ul>
+  <li ng-repeat="cat in controller.categories" ui-sref="categories.detail({catId: cat.id})">
+    <a ui-sref="/category/" > {{cat.name}}
+  </li>
+</ul>
+
+<ui-view></ui-view>
