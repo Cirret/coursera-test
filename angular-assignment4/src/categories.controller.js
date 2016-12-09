@@ -1,18 +1,10 @@
 (function () {
-  console.log("categories.controller.js");
-
   angular.module('MenuApp')
-  .controller('CategoriesComponentController', CategoriesComponentController);
+  .controller('CategoriesController', CategoriesController);
 
-  CategoriesComponentController.$inject = ['categories']
-  function CategoriesComponentController(categories) {
+  CategoriesController.$inject = ['cats']
+  function CategoriesController(cats) {
     var controller = this;
-
-    console.log("CategoriesComponentController");
-    console.dir(categories);
-
-    controller.categories = categories;
+    controller.cats = cats;
   }
-
-
 })();

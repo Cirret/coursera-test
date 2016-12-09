@@ -2,19 +2,9 @@
 
   angular.module('MenuApp')
   .component('items', {
-    templateUrl: 'items.template.html',
-    controller: ItemsComponentController,
+    templateUrl: 'src/items.component.html',
     bindings: {
-      items: '<'
-      // myTitle: '@title',
-      // onRemove: '&'
+      meals: '<'
     }
   });
-
-  ItemsComponentController.$inject = ['$q', '$timeout']
-  function ItemsComponentController($q, $timeout) {
-    var component = this;
-  }
-
-
 })();

@@ -6,8 +6,6 @@ angular.module('MenuApp')
 RoutesConfig.$inject = ['$stateProvider', '$urlRouterProvider'];
 function RoutesConfig($stateProvider, $urlRouterProvider) {
 
-  console.log("RoutesConfig");
-
   // Redirect to home if no other URL matches
   $urlRouterProvider.otherwise('/');
 
@@ -15,41 +13,34 @@ function RoutesConfig($stateProvider, $urlRouterProvider) {
   $stateProvider
     .state('home', {
       url: '/',
-      templateUrl: 'src/home.template.html'
+      templateUrl: 'src/home.state.html'
     });
 
     $stateProvider
       .state('categories', {
         url: '/categories',
-        templateUrl: 'src/categories.component.html',
-        controller: 'CategoriesComponentController as controller',
+        templateUrl: 'src/categories.state.html',
+        controller: 'CategoriesController as controller',
         resolve: {
-          categories: ['MenuDataService', function (MenuDataService) {
-            console.log("resolve: calling MenuDataService");
+          cats: ['MenuDataService', function (MenuDataService) {
             return MenuDataService.getAllCategories();
           }]
         }
       });
 
-      // Set up UI states
       $stateProvider
-        .state('tab1', {
-          url: '/tab1',
-          templateUrl: 'src/tab1.html'
-        });
-
-        $stateProvider
-        .state('tab2', {
-          url: '/tab2',
-          templateUrl: 'src/tab2.html'
-        })
-
-        .state('categories.detail', {
-          url: '/category/{catId}',
-          templateUrl: 'src/category-detail.template.html',
-          controller: "ItemDetailController as itemDetail"
+      .state('categories.items', {
+          url: '/items/{categoryShortName}',
+          templateUrl: 'src/items.state.html',
+          controller: 'ItemsController as controller',
+          resolve: {
+            menuItems: ['MenuDataService', '$stateParams', function (MenuDataService, $stateParams) {
+              return MenuDataService.getItemsForCategory($stateParams.categoryShortName);
+            }]
+          }
+          
         });
       }
-
+    //
 
 })();

@@ -1,3 +1,5 @@
-<h4>items.component.html</h4>
-
-TODO: show all the menu items for a particular category
+<ul class="yellow">
+  <li ng-repeat="meal in $ctrl.meals">
+    <a title="{{meal.description || meal.name}}"> {{meal.name || meal.description}}</a>
+  </li>
+</ul>

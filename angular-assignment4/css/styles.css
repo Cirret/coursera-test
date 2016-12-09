@@ -14,3 +14,27 @@ div.tabs {
 .activeTab {
   font-weight: bold;
 }
+
+.red {
+  background-color: #ff8080;
+}
+
+.green {
+  background-color: #80ff80;
+}
+
+.blue {
+  background-color: #8080ff;
+}
+
+.yellow {
+  background-color: #ffff80;
+}
+
+.cyan {
+  background-color: #80ffff;
+}
+
+.magenta {
+  background-color: #ff80ff;
+}
