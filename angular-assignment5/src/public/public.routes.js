@@ -43,21 +43,23 @@ function routeConfig ($stateProvider) {
     })
     .state('public.signup', {
       url: '/signup',
-      templateUrl: 'src/public/signup/signup.html',
-      // resolve: {
-      //   menuItems: ['$stateParams','MenuService', function ($stateParams, MenuService) {
-      //     return MenuService.getMenuItems($stateParams.category);
-      //   }]
-      // }
+      templateUrl: 'src/public/signup/signup.html'
     })
     .state('public.myinfo', {
       url: '/myinfo',
       templateUrl: 'src/public/myinfo/myinfo.html',
-      // resolve: {
-      //   menuItems: ['$stateParams','MenuService', function ($stateParams, MenuService) {
-      //     return MenuService.getMenuItems($stateParams.category);
-      //   }]
-      // }
+      controller: 'MyInformationController',
+      controllerAs: 'myInfoCtrl',
+      resolve: {
+        faveItem: ['MenuService', 'RegistrationService', function (MenuService, RegistrationService) {
+          var fave = RegistrationService.getMyInfo().fave;
+          if (fave === undefined) {
+            return false;
+          } else {
+            return MenuService.getMenuItem(fave);
+          }
+        }]
+      }
     });
 }
 })();
