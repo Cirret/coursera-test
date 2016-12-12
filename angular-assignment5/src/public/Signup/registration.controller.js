@@ -11,8 +11,8 @@ function RegistrationController(RegistrationService, MenuService) {
   reg.fave_valid = true;
 
   reg.submit = function () {
-
-    MenuService.getMenuItem(reg.user.fave)
+    var fave = reg.user.fave.toUpperCase();
+    MenuService.getMenuItem(fave)
     .then(function (valid) {
       reg.fave_valid = valid;
 

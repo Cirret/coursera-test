@@ -25,7 +25,7 @@ function RegistrationService() {
       last_name: info.last_name,
       email: info.email,
       phone: info.phone,
-      fave: info.fave
+      fave: info.fave.toUpperCase()
     }
   };
 
